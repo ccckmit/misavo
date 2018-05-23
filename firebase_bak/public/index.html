@@ -3,7 +3,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.0.3/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.0.3/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.0.3/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.0.3/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.0.3/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
   </head>
   <body>
   <header>
@@ -13,7 +22,7 @@
         <a onclick="Shop.mainPage()" href="#MiSaVo" style="font-family:Verdana; text-shadow: 1px 0px 1px rgb(243, 243, 154); ">MiSaVo</a>
         </div>
         <div class="navbar" style="float:right">
-        <a href="#title" id="title"></a>
+        <a href="#title" id="title" style="display:none"></a>
         <div class="dropdown">
           <button class="dropbtn">
             <label id="userName" style="color:white"><i class="fa fa-user"></i></label>
@@ -80,14 +89,14 @@
         <br/>
         <p>如果您想開店，只要上 MiSaVo 創建帳號後、輸入產品清單與價錢，就可以開始營業了！ (請看下列投影片)</p>
         <br/>
-        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQI_AC5-Kj2IaWazK_aY_mVAJvpC1Ha1avY2uI8Krrt7CB9WFGEQLrJiGlm_OtQbCDSEPXmfO0b8LI1/embed?start=false&loop=false&delayms=3000" frameborder="0" width="800" height="480" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <iframe style="width:100%; " src="https://docs.google.com/presentation/d/e/2PACX-1vQI_AC5-Kj2IaWazK_aY_mVAJvpC1Ha1avY2uI8Krrt7CB9WFGEQLrJiGlm_OtQbCDSEPXmfO0b8LI1/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         <br/>
         <br/>
         <p>如果您想找店，可以直接上 MiSaVo 看店面地圖，過濾出您想要的商店，然後直接下單、或者到店裡直接消費就行了！</p>
         <br/>
         <p>以下是 MiSaVo 的使用影片，您會發現這個系統是非常容易使用的，比 Facebook, Line 更容易使用 ...</p>
         <br/>
-        <iframe width="800" height="500" src="https://www.youtube.com/embed/-H1W6Xyvy48?start=1135" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe style="width:100%; " src="https://www.youtube.com/embed/-H1W6Xyvy48?start=1135" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <br/>
         <br/>
         <p>店面由您在家經營，剩下的交給 MiSaVo 就行了！</p>
@@ -111,18 +120,19 @@
       Email : <a href="MiSaVo.com@gmail.com">MiSaVo.com@gmail.com</a>
   </footer>
   <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
-  <script src="../js/Local.js"></script>
-  <script src="../js/Db.js"></script>
-  <script src="../js/Lib.js"></script>
-  <script src="../js/Ui.js"></script>
-  <script src="../js/Shared.js"></script>
-  <script src="../page/Shop.js"></script>
-  <script src="../page/ShopTable.js"></script>
-  <script src="../page/Pos.js"></script>
-  <script src="../page/Report.js"></script>
-  <script src="../page/Setting.js"></script>
-  <script src="../page/Storage.js"></script>
-  <script src="../page/User.js"></script>
-  <script src="../page/Gmap.js"></script>
+  <script src="js/Local.js"></script>
+  <script src="js/Fire.js"></script>
+  <script src="js/Db.js"></script>
+  <script src="js/Lib.js"></script>
+  <script src="js/Ui.js"></script>
+  <script src="js/Shared.js"></script>
+  <script src="page/Shop.js"></script>
+  <script src="page/ShopTable.js"></script>
+  <script src="page/Pos.js"></script>
+  <script src="page/Report.js"></script>
+  <script src="page/Setting.js"></script>
+  <script src="page/Storage.js"></script>
+  <script src="page/User.js"></script>
+  <script src="page/Gmap.js"></script>
 </body>
 </html>

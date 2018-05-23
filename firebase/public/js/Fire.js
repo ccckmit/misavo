@@ -2,13 +2,13 @@ const Fire = { isInit: false }
 
 // Initialize Firebase
 Fire.config = {
-  apiKey: "AIzaSyCtF7tTfbheK2i9WUy6xD63RpefAj1VNFk",
-  authDomain: "lapos-ccc.firebaseapp.com",
-  databaseURL: "https://lapos-ccc.firebaseio.com",
-  projectId: "lapos-ccc",
-  storageBucket: "lapos-ccc.appspot.com",
-  messagingSenderId: "914514522521"
-}
+  apiKey: "AIzaSyBnKpqrXJq54gk6SbT140GNt6D2CYsJQPg",
+  authDomain: "misavo-com.firebaseapp.com",
+  databaseURL: "https://misavo-com.firebaseio.com",
+  projectId: "misavo-com",
+  storageBucket: "misavo-com.appspot.com",
+  messagingSenderId: "236706516090"
+};
 
 /*
   const firestore = firebase.firestore();
