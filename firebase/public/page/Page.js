@@ -45,6 +45,8 @@ Page.login = function () {
 }
 
 Page.logout = function () {
+  Shared.user = null
+  Local.remove('User')
   Ui.show(`<h1>您已經登出!</h1>`)
 }
 

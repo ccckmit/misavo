@@ -9,12 +9,6 @@ User.getName = function () {
   return Shared.user.name
 }
 
-User.logout = function () {
-  Shared.user = null
-  Local.remove('User')
-  User.showLogout()
-}
-
 User.googleLogin = async function () {
   var gUser = await Fire.googleLogin()
   if (gUser != null) {
