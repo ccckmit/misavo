@@ -1,6 +1,4 @@
-const Landing = {}
-
-Landing.html = `
+Page.landing = Page[''] = `
 <div class="center" style="text-align:left; margin: 20px;">
 <h1>MiSaVo 在家開店系統</h1>
 <br/>
@@ -48,7 +46,3 @@ Landing.html = `
 <br/>
 </div>
 `
-
-Landing.start = function () {
-  Ui.show(Landing.html)
-}

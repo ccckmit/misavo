@@ -1,7 +1,5 @@
 const Page = { }
 
-Page.landing = Page[''] = function () { Landing.start() }
-
 Page.pos = function () { Pos.start() }
 
 Page.report = function () { Report.start() }
@@ -56,7 +54,12 @@ Page.init = function () {
   window.onhashchange = function () {
     let hash = window.location.hash.substring(1)
     console.log('hash=', hash)
-    Page[hash]()
+    let p = Page[hash]
+    if (typeof p === 'string') {
+      Ui.show(p)
+    } else {
+      p()
+    }
   }
   window.onhashchange()
 }
