@@ -21,7 +21,7 @@ Setting.html = `
 </table>
 <br/>
 <button onclick="Setting.save()">儲存設定</button>
-<button onclick="Shop.mainPage()">回主選單</button>
+<button onclick="Page.goto('shopMain')">回主選單</button>
 `
 
 Setting.start = function () {

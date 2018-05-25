@@ -11,7 +11,7 @@ Report.html = `
       <label>總收入：</label>
       <label id="reportTotal"></label>
       <br/><br/>
-      <button onclick="Shop.mainPage()">回主選單</button>
+      <button onclick="Page.goto('shopMain')">回主選單</button>
     </div>
   </div>
   <div id="detail" class="panel" style="display:none">
@@ -67,7 +67,7 @@ Report.orderListHtml = function (arg) {
 Report.orderRowHtml = function (i, order) {
   let time = new Date(order.time)
   return `<tr>
-    <td><a href="#" onclick="Report.showDetail('${order.id}')">${i}</a></td>
+    <td><a onclick="Report.showDetail('${order.id}')">${i}</a></td>
     <td>${order.records[0].item} ...</td>
     <td class="number">${order.totalPrice}</td>
     <td>${Lib.dateToString(time)}</td>

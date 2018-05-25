@@ -1,5 +1,5 @@
 const Shop = {}
-
+/*
 Shop.mainPage = function () {
   // Shop.load()
   Shared.shop = Db.load('Shop') || Shared.shop
@@ -14,10 +14,10 @@ Shop.mainPage = function () {
   `)
   Ui.title(Shared.shop.name)
 }
-
 Shop.todayReport = function () {
   Report.start({range: Lib.dayRange(new Date())})
 }
+*/
 
 /*
 Shop.shop = {

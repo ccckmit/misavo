@@ -4,8 +4,8 @@ Landing.html = `
 <div class="center" style="text-align:left; margin: 20px;">
 <h1>MiSaVo 在家開店系統</h1>
 <br/>
-<button onclick="User.newShop()">我要開店</button>
-<button onclick="User.findShop()">我要找店</button>
+<button onclick="Page.newShop()">我要開店</button>
+<button onclick="Page.findShop()">我要找店</button>
 <br/>
 <br/>
 <p>開店一定要有《店面》嗎？一定要花很多本錢嗎？</p>
@@ -40,8 +40,8 @@ Landing.html = `
 <br/>
 <p>現在、您可以開始在家經營自己的事業了！</p>
 <br/>
-<button onclick="User.newShop()">我要開店</button>
-<button onclick="User.findShop()">我要找店</button>
+<button onclick="Page.newShop()">我要開店</button>
+<button onclick="Page.findShop()">我要找店</button>
 <br/>
 <br/>
 <a href="https://MiSaVo.com">https://MiSaVo.com</a>

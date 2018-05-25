@@ -7,7 +7,7 @@ Storage.start = function () {
     <button onclick="Ui.id('downlink').click()">匯出資料</button>
     <button onclick="Ui.id('importFile').click()">匯入資料</button>
     <input onchange="Storage.importFile()" id="importFile" type="file" value="匯入檔案" class="hidden">
-    <button onclick="Shop.mainPage()">回主選單</button>
+    <button onclick="Page.goto('shopMain')">回主選單</button>
     <a id="downlink" style="display:none"></a>
     <pre style="text-align:left">\n${JSON.stringify(storageObj, null, 2)}\n</pre>
   </div>

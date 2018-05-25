@@ -63,13 +63,13 @@ Pos.start = function () {
 Pos.goShop = function () {
   if (!Order.submitted) {
     if (confirm('您的訂單尚未送出，請問是否要放棄該訂單？')) {
-      Shop.mainPage()
+      Page.goto('shopMain')
       return
     } else {
       return
     }
   }
-  Shop.mainPage()
+  Page.goto('shopMain')
 }
 
 Pos.abort = function () {

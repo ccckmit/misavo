@@ -21,7 +21,7 @@ ShopTable.showReport = function () {
 
 ShopTable.rowHtml = function (i, shop) {
   return `<tr>
-  <td><a href="#" onclick="ShopTable.showDetail('${shop.id}')">${i}</a></td>
+  <td><a onclick="ShopTable.showDetail('${shop.id}')">${i}</a></td>
   <td>${shop.name}</td>
   <td>${JSON.stringify(shop.items)}</td>
   </tr>`
