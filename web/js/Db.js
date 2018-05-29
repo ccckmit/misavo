@@ -1,9 +1,10 @@
 const Db = Local
 
+Db.server = {}
 // const Db = {}
 console.log('Db=', Db)
 
-Db.query = async function (tableName, q) {
+Db.server.query = async function (tableName, q) {
   // let r = await fetch(`http://localhost:3000/${tableName}?filter=${JSON.stringify(q.filter)}&sort=${JSON.stringify(q.sort)}&limit=${q.limit}&skip=${q.limit}`)
   console.log('Db.query: q=', q)
   let filter = JSON.stringify(q.filter)

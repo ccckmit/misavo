@@ -29,6 +29,29 @@ Lib.guid = function () {
   })
 }
 
+Lib.query2json = function (query) {
+  var hash
+  var myJson = {}
+  query = query || ''
+  var hashes = query.split('&')
+  for (var i = 0; i < hashes.length; i++) {
+      hash = hashes[i].split('=')
+      myJson[hash[0]] = hash[1]
+  }
+  return myJson
+}
+
+  /*
+  let q = new URLSearchParams(query)
+  console.log('query=', query, 'q=', q, 'q.keys=', q.keys())
+  let json = {}
+  for (let key in q.keys()) {
+    let value = q.get(key)
+    json[key] = value
+  }
+  return json
+  */
+
 Lib.sortBy = function (list, arg) {
   return list.sort((o1, o2) => o1[arg.sortBy] < o2[arg.sortBy])
 }

@@ -13,7 +13,7 @@ ShopTable.html = `
 
 ShopTable.start = async function (arg={}) {
   ShopTable.arg = arg
-  let shops = ShopTable.shops = await Db.query('shop', {})
+  let shops = ShopTable.shops = await Db.server.query('shop', {})
   /*
   let r = await fetch('http://localhost:3000/shop')
   let json = await r.json()

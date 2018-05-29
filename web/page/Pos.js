@@ -54,9 +54,9 @@ Pos.html = `
 
 Pos.start = async function (q) {
   Ui.show(Pos.html)
-  let shopId = q.get('id')
+  let shopId = q.id
   console.log('shopId=', shopId)
-  let shopList = await Db.query('shop', {filter: {_id: shopId}})
+  let shopList = await Db.server.query('shop', {filter: {_id: shopId}})
   let shop = shopList[0]
   console.log('shop=', shop)
   // let shop = fetch()

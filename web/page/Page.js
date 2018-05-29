@@ -60,7 +60,7 @@ Page.init = function () {
     if (typeof p === 'string') {
       Ui.show(p)
     } else {
-      let q = new URLSearchParams(query)
+      let q = Lib.query2json(query)
       // let q = s.get('q') || {}
       console.log('q=', q)
       p(q)
