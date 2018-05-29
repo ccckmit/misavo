@@ -4,6 +4,7 @@
 # ccc
 bak/
 *.bak
+db/
 
 # node
 .DS_Store

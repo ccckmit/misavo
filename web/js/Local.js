@@ -11,7 +11,7 @@ Local.save = function (path, obj) {
 }
 
 Local.insert = function (path, obj) {
-  let id = Lib.uuid()
+  let id = Lib.guid() // Lib.uuid()
   obj.id = id
   Local.save(path +'.' + id, obj)
 }

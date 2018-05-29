@@ -39,7 +39,7 @@ Pos.html = `
   <div class="nowrap bigmargin">
     <label>總價:</label>
     <input id="totalPrice" type="number" value="0" style="width:5em">
-    <button id="goShop" onclick="Pos.goShop()">回主選單</button>
+    <button id="goMain" onclick="Pos.goMain()">回主選單</button>
     <button id="newOrder" onclick="Pos.start()" disabled="disabled">新增下一筆</button>
     <button id="submit" onclick="Pos.submit()">下單</button>
     <button id="abort" onclick="Pos.abort()">放棄</button>
@@ -52,15 +52,25 @@ Pos.html = `
 </div>
 `
 
-Pos.start = function () {
+Pos.start = async function (q) {
   Ui.show(Pos.html)
-  Ui.id('items').innerHTML = Pos.optionList(Shared.shop.items)
-  Ui.id('addons').innerHTML = Pos.optionList(Shared.shop.addons)
+  let shopId = q.get('id')
+  console.log('shopId=', shopId)
+  let shopList = await Db.query('shop', {filter: {_id: shopId}})
+  let shop = shopList[0]
+  console.log('shop=', shop)
+  // let shop = fetch()
+  // Ui.id('items').innerHTML = Pos.optionList(Shared.shop.items)
+  // Ui.id('addons').innerHTML = Pos.optionList(Shared.shop.addons)
+  Ui.id('items').innerHTML = Pos.optionList(shop.items)
+  shop.addons['無附加'] = 0
+  Ui.id('addons').innerHTML = Pos.optionList(shop.addons)
   Order = Pos.newOrder()
+  Order.shopId = shopId
   Pos.calcPrice()
 }
 
-Pos.goShop = function () {
+Pos.goMain = function () {
   if (!Order.submitted) {
     if (confirm('您的訂單尚未送出，請問是否要放棄該訂單？')) {
       Page.goto('shopMain')

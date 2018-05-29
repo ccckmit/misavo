@@ -1,6 +1,6 @@
 const Page = { }
 
-Page.pos = function () { Pos.start() }
+Page.pos = function (query) { Pos.start(query) }
 
 Page.report = function () { Report.start() }
 
@@ -52,13 +52,18 @@ Page.logout = function () {
 Page.init = function () {
   console.log('Page.init()')
   window.onhashchange = function () {
-    let hash = window.location.hash.substring(1)
+    let m = window.location.hash.match(/^#(\w*)(\?(.*))?$/)
+    console.log('m=', m)
+    let hash = m[1], query=m[3]
     console.log('hash=', hash)
     let p = Page[hash]
     if (typeof p === 'string') {
       Ui.show(p)
     } else {
-      p()
+      let q = new URLSearchParams(query)
+      // let q = s.get('q') || {}
+      console.log('q=', q)
+      p(q)
     }
   }
   window.onhashchange()

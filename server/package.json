@@ -4,12 +4,13 @@
   "description": "misavo server",
   "main": "misavoServer.js",
   "scripts": {
-    "start": "node misavoServer",
+    "start": "node lib/server",
     "test": "mocha"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@koa/cors": "^2.2.1",
     "async-busboy": "^0.6.2",
     "co-body": "^5.1.1",
     "koa": "^2.5.0",

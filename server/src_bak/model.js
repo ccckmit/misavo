@@ -9,12 +9,12 @@ M.dbOpen = async function (url='mongodb://localhost:27017') {
 
 M.dbCreate = async function (url) {
   await M.dbOpen()
-  await M.db.table('shops').ensureIndex({ uid: 1, 'at.lat': 1, 'at.lng': 1 })
+  await M.db.table('shop').ensureIndex({ uid: 1, 'at.lat': 1, 'at.lng': 1 })
   // await db.table('shops').createIndex({ '$**': 'text'})
-  await M.db.table('users').ensureIndex({ uid: 1 })
+  await M.db.table('user').ensureIndex({ uid: 1 })
 }
 
 M.dbClear = async function () {
-  await M.db.clear('shops')
-  await M.db.clear('users')
+  await M.db.clear('shop')
+  await M.db.clear('user')
 }

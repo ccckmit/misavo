@@ -22,6 +22,13 @@ Lib.uuid = function () {
   })
 }
 
+Lib.guid = function () {
+  return 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'.replace(/[x]/g, function(c) {
+    var r = Math.floor(Math.random() * 16)
+    return r.toString(16)
+  })
+}
+
 Lib.sortBy = function (list, arg) {
   return list.sort((o1, o2) => o1[arg.sortBy] < o2[arg.sortBy])
 }
