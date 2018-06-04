@@ -26,7 +26,7 @@ describe('DB', () => {
   */
   it('shop.insert(someshop)', async () => {
     for (shop of someshop) {
-      let r = await M.db.insert('shop', shop)
+      let r = await M.insertShop(shop)
       ok(r.result.ok === 1)
     }
   })

@@ -1,7 +1,8 @@
 const Gmap = {
   center: {lat: 24.43, lng: 118.33},
   zoom: 13,
-  myMarker: null
+  myMarker: null,
+  myPos: null,
 }
 
 Gmap.html = `
@@ -13,10 +14,12 @@ var initMap = function () {
   Gmap.init()
 }
 
+/*
 Gmap.myPosition = function () {
   let pos = Gmap.myMarker.getPosition()
   return {lat: pos.lat(), lng: pos.lng()}
 }
+*/
 
 Gmap.init = function () {
   Gmap.map = new google.maps.Map(Ui.id('map'), {
@@ -42,8 +45,10 @@ Gmap.start = function (arg={}) {
 
 Gmap.getLocation = function () {
   console.log('Gmap.getLocation()')
+  if (Gmap.myPos != null) return 
   navigator.geolocation.getCurrentPosition(function (pos) {
     let gpsPos = { lat: pos.coords.latitude, lng: pos.coords.longitude }
+    Gmap.myPos = gpsPos
     Gmap.myMarker = new google.maps.Marker({
       // iconUrl: 'https://use.fontawesome.com/releases/v5.0.8/svgs/solid/male.svg', 
       position: gpsPos, 
@@ -56,4 +61,22 @@ Gmap.getLocation = function () {
     console.log('gpsLocated', gpsPos)
     Gmap.myMarker.setPosition(gpsPos)
   })
+}
+
+// 地球一周約 4萬公里，相當於 360度，所以每度約 100 公里。
+// 一公里 = 1/100 度 = 0.01 度
+// export function km2dist (km) {
+Gmap.km2dist = function km2dist (km) {
+  return km * 0.01
+}
+  
+// export function dist2km (dist) {
+Gmap.dist2km = function dist2km (dist) {
+  return dist * 100
+}
+
+Gmap.range = function range (at, km) {
+  var dx, dy
+  dx = dy = Gmap.km2dist(km)
+  return {begin: {x: at.lat - dx, y: at.lng - dy}, end: {x: at.lat + dx, y: at.lng + dy}}
 }

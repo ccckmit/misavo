@@ -13,10 +13,9 @@ M.dbCreate = async function (url) {
   // await db.db.createCollection('shop', { autoIndexId: false })
   // await db.db.createCollection('user', { autoIndexId: false })
   await db.table('shop').ensureIndex({ uid: 1, 'at.lat': 1, 'at.lng': 1 })
-  // await db.table('shops').createIndex({ '$**': 'text'})
+  await db.table('shop').createIndex({ '$**': 'text'})
   return await db.table('user').ensureIndex({ uid: 1 })
 }
-
 
 M.dbClear = async function () {
   await db.clear('shop')
@@ -25,4 +24,9 @@ M.dbClear = async function () {
 
 M.dbClose = async function () {
   return await db.close()
+}
+
+M.insertShop = async function (shop) {
+  shop.fulltext = JSON.stringify(shop)
+  return db.insert('shop', shop)
 }

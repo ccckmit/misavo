@@ -64,23 +64,27 @@ Ui.loadCss = function (url) {
 
 // load script (JS)
 Ui.loadJs = function (url) {
-  return new Promise(function (resolve, reject) {
-    var urlLoaded = Ui.jsLoaded[url]
-    if (urlLoaded === true) {
-      resolve(url)
-      return
-    }
-    var script = document.createElement('script')
-    script.onload = function () {
-      console.log('onload:', url)
-      Ui.jsLoaded[url] = true
-      resolve()
-    }
-    script.onerror = function () {
-      Ui.jsLoaded[url] = false
-      reject(new Error('Could not load script at ' + url))
-    }
-    script.src = url
-    Ui.one('head').appendChild(script)
-  })
+  if (Ui.jsLoaded[url]) {
+    return new Promise(function (resolve, reject) { resolve(url) })
+  } else {
+    return new Promise(function (resolve, reject) {
+      var urlLoaded = Ui.jsLoaded[url]
+      if (urlLoaded === true) {
+        resolve(url)
+        return
+      }
+      var script = document.createElement('script')
+      script.onload = function () {
+        console.log('onload:', url)
+        Ui.jsLoaded[url] = true
+        resolve()
+      }
+      script.onerror = function () {
+        Ui.jsLoaded[url] = false
+        reject(new Error('Could not load script at ' + url))
+      }
+      script.src = url
+      Ui.one('head').appendChild(script)
+    })
+  }
 }

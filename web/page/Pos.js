@@ -39,7 +39,7 @@ Pos.html = `
   <div class="nowrap bigmargin">
     <label>總價:</label>
     <input id="totalPrice" type="number" value="0" style="width:5em">
-    <button id="goMain" onclick="Pos.goMain()">回主選單</button>
+    <!-- <button id="goMain" onclick="Pos.goMain()">回主選單</button> -->
     <button id="newOrder" onclick="Pos.start()" disabled="disabled">新增下一筆</button>
     <button id="submit" onclick="Pos.submit()">下單</button>
     <button id="abort" onclick="Pos.abort()">放棄</button>
@@ -52,21 +52,16 @@ Pos.html = `
 </div>
 `
 
-Pos.start = async function (q) {
+Pos.start = async function () {
   Ui.show(Pos.html)
-  let shopId = q.id
-  console.log('shopId=', shopId)
-  let shopList = await Db.server.query('shop', {filter: {_id: shopId}})
-  let shop = shopList[0]
-  console.log('shop=', shop)
   // let shop = fetch()
   // Ui.id('items').innerHTML = Pos.optionList(Shared.shop.items)
   // Ui.id('addons').innerHTML = Pos.optionList(Shared.shop.addons)
-  Ui.id('items').innerHTML = Pos.optionList(shop.items)
-  shop.addons['無附加'] = 0
-  Ui.id('addons').innerHTML = Pos.optionList(shop.addons)
-  Order = Pos.newOrder()
-  Order.shopId = shopId
+  Ui.id('items').innerHTML = Pos.optionList(Pos.shop.items)
+  Pos.shop.addons['無附加'] = 0
+  Ui.id('addons').innerHTML = Pos.optionList(Pos.shop.addons)
+  Order = Pos.newOrder(Pos.shop._id)
+  // Order.shopId = shopId
   Pos.calcPrice()
 }
 
@@ -89,7 +84,7 @@ Pos.abort = function () {
 }
 
 Pos.newOrder = function () {
-  return {totalPrice: 0, records: [], submitted: false}
+  return {totalPrice: 0, records: [], submitted: false, shopId: Pos.shop._id}
 }
 
 Pos.submit = function () {
@@ -141,3 +136,20 @@ Pos.addItem = function () {
   Order.totalPrice += price * quantity
   Ui.id('totalPrice').value = Order.totalPrice
 }
+
+/*
+Pos.renew = function () {
+  Order = Pos.newOrder(Order.shopId)
+  // Order.shopId = shopId
+  // Pos.list(Order.records)
+  Ui.id('orderTableBody').innerHTML = Pos.list(Order.records)
+  Order.totalPrice += price * quantity
+  Ui.id('totalPrice').value = Order.totalPrice
+  // Pos.calcPrice()
+}
+*/
+/*
+Pos.newOrder = function () {
+  return {totalPrice: 0, records: [], submitted: false}
+}
+*/
