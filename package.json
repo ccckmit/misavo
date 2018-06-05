@@ -1,5 +1,5 @@
 {
-  "name": "lapos",
+  "name": "misavo",
   "version": "0.0.1",
   "description": "A Pos System",
   "main": "lib/index.js",
@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "publish": "git add -A&&git commit -m \"upload\"&&git push origin master"
   },
   "author": "",
   "license": "ISC"

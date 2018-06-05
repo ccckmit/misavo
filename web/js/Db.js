@@ -1,15 +1,20 @@
 const Db = Local
 
 Db.server = {}
+
 // const Db = {}
 console.log('Db=', Db)
+
+Db.server.select = async function (tableName, q) {
+  return await fetch(`http://${location.hostname}:3000/${tableName}?q=${JSON.stringify(q)}`)
+}
 
 Db.server.query = async function (tableName, q) {
   // let r = await fetch(`http://localhost:3000/${tableName}?filter=${JSON.stringify(q.filter)}&sort=${JSON.stringify(q.sort)}&limit=${q.limit}&skip=${q.limit}`)
   console.log('Db.query: q=', q)
   let filter = JSON.stringify(q.filter)
   let sort = JSON.stringify(q.sort)
-  let r = await fetch(`http://localhost:3000/${tableName}?q=${JSON.stringify(q)}`)
+  let r = await Db.server.select(tableName, q)
   // let r = await fetch(`http://localhost:3000/${tableName}?filter={"_id":"7e2ef5df6119eda68b6a47c633fcbc"}`)
   let json = await r.json()
   console.log('Db.query: return ', json)
