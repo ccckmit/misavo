@@ -14,6 +14,11 @@ $ cp -R SRCFOLDER DESTFOLDER/
 
 * [How To Install Nginx on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04)
 
+* https://www.linode.com/docs/networking/using-the-linode-shell-lish/
+
+安裝 mongodb : https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
+
 ## IP
 
 172.104.67.74

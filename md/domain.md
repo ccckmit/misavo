@@ -6,6 +6,7 @@
 
 ## Host
 
-* [Linode VPS 虛擬專屬主機註冊與購買教學](https://blog.gtwang.org/web-hosting/linode-vps-registration-tutorial/) (讚!)
+
+
 * https://www.upcloud.com
 
