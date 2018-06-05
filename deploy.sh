@@ -1,1 +1,1 @@
-cp -R ./web/ /etc/nginx/misavo.com/html/
+cp -R ./web/ /var/www/misavo.com/html/
